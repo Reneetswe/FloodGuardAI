@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: flood-guard-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        sync: false
+      - key: AFRICASTALKING_API_KEY
+        sync: false
+      - key: AFRICASTALKING_USERNAME
+        sync: false

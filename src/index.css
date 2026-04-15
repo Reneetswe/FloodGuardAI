@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: 249 250 251;
+  --bg-secondary: 243 244 246;
+  --text-primary: 17 24 39;
+  --text-secondary: 107 114 128;
+  --border: 229 231 235;
+  --accent: 13 148 136;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  background-color: rgb(var(--bg-primary));
+  color: rgb(var(--text-primary));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.landing-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url('/flood-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+body.landing-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.glass-surface {
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.glass-surface-strong {
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+}
+
+.bg-radial-fade {
+  background: radial-gradient(900px 500px at 70% 15%, rgba(13, 148, 136, 0.14) 0%, transparent 65%);
+}
+
+.hero-waves {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-waves::before,
+.hero-waves::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 200%;
+  background: radial-gradient(100% 50% at 50% 50%, rgba(13,148,136,0.18) 0%, rgba(13,148,136,0.08) 45%, transparent 60%);
+  transform: translateX(0);
+  animation: wave 16s linear infinite;
+}
+.hero-waves::after {
+  background: radial-gradient(100% 50% at 50% 50%, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0.08) 45%, transparent 60%);
+  animation-duration: 22s;
+}
+
+.badge-dot {
+  display: inline-flex; align-items: center; gap: .5rem;
+}
+.badge-dot::before {
+  content: '';
+  width: .5rem; height: .5rem; border-radius: 9999px; background: currentColor;
+}
+
+/* Editorial typography system */
+.text-headline {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.text-body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-caption {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Dark mode utilities */
+.bg-primary { background-color: rgb(var(--bg-primary)); }
+.bg-secondary { background-color: rgb(var(--bg-secondary)); }
+.text-primary { color: rgb(var(--text-primary)); }
+.text-secondary { color: rgb(var(--text-secondary)); }
+.border-custom { border-color: rgb(var(--border)); }
+
+/* Professional color palette extracted from flood scene */
+.color-floodwater { color: #0d9488; }
+.text-floodwater { color: #0d9488; }
+.color-concrete { color: #475569; }
+.color-earth { color: #78716c; }
+.color-sky-muted { color: #94a3b8; }
+.bg-floodwater { background-color: #0d9488; }
+.bg-concrete { background-color: #475569; }
+.bg-earth { background-color: #78716c; }
+.bg-sky-muted { background-color: #94a3b8; }
+.border-floodwater { border-color: #0d9488; }
+.border-concrete { border-color: #475569; }
+.border-earth { border-color: #78716c; }
+.border-sky-muted { border-color: #94a3b8; }
+
+/* Professional UI elements */
+.button-primary {
+  background-color: rgb(var(--accent));
+  color: #ffffff;
+  padding: 0.875rem 2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.button-primary:hover {
+  background-color: rgb(15 118 110);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: rgb(var(--text-secondary));
+  padding: 0.875rem 2rem;
+  font-weight: 500;
+  border: 1px solid rgb(var(--border));
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.button-secondary:hover {
+  background-color: rgb(var(--bg-secondary));
+  border-color: rgb(var(--text-secondary));
+}
+
+/* Subtle shadows for depth */
+.shadow-professional {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.shadow-professional-lg {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Glassmorphic effects */
+.glass-surface {
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+}
+
+.glass-surface-strong {
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+}
+
+.shadow-soft {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px 0 rgba(13, 148, 136, 0.15), 0 0 40px 0 rgba(13, 148, 136, 0.1);
+}
+
+/* Progress bars */
+.progress-striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}

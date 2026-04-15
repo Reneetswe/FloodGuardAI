@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://REPLACE_WITH_BACKEND_URL/api/$1"
+    },
+    {
+      "source": "/socket.io/(.*)",
+      "destination": "https://REPLACE_WITH_BACKEND_URL/socket.io/$1"
+    }
+  ]
+}
