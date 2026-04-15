@@ -20,25 +20,12 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.landing-bg::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image: url('/flood-bg.png');
+body.landing-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)), url('/flood-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-}
-
-body.landing-bg::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: rgba(0, 0, 0, 0.1);
+  background-attachment: fixed;
 }
 
 .glass-surface {
