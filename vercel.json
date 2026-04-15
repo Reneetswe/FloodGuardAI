@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://REPLACE_WITH_BACKEND_URL/api/$1"
+      "destination": "https://floodguardai.onrender.com"
     },
     {
       "source": "/socket.io/(.*)",
-      "destination": "https://REPLACE_WITH_BACKEND_URL/socket.io/$1"
+      "destination": "https://floodguardai.onrender.com"
     }
   ]
 }
